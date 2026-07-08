@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-fifa-gold: #DFB04B;
+  --color-fifa-blue: #081D3E;
+  --color-fifa-red: #D3112E;
+  --color-fifa-green: #00A650;
+  --color-fifa-dark: #030A16;
+  --color-fifa-light: #F8FAFC;
+
+  --font-family-sans: "Outfit", "Inter", sans-serif;
+}
+.high-contrast {
+  --color-fifa-dark: #000000;
+  --color-slate-900: #000000;
+  --color-slate-950: #000000;
+  --color-slate-800: #111111;
+  --color-slate-100: #ffffff;
+  --color-slate-200: #ffffff;
+  --color-slate-300: #ffffff;
+  --color-fifa-gold: #ffff00;
+  
+  filter: contrast(1.25);
+}
+
+@layer base {
+  body {
+    @apply bg-slate-900 text-slate-100 font-sans antialiased overflow-x-hidden;
+  }
+}
+
+/* Glassmorphism custom classes */
+.glass-panel {
+  background: rgba(8, 29, 62, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-card {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glow-gold {
+  box-shadow: 0 0 20px rgba(223, 176, 75, 0.15);
+}
+
+.glow-blue {
+  box-shadow: 0 0 20px rgba(8, 29, 62, 0.3);
+}
+
+/* Animation Utilities */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Hide scrollbar but keep functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

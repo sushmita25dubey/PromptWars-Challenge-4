@@ -1,0 +1,307 @@
+import type { MatchStatus, TransportOption, StadiumZone, EmergencyAlert, SustainabilityMetrics, VolunteerTask } from '../types';
+
+export const MATCHES: MatchStatus[] = [
+  {
+    id: 'match-1',
+    homeTeam: 'USA',
+    homeFlag: '🇺🇸',
+    awayTeam: 'England',
+    awayFlag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿',
+    homeScore: 2,
+    awayScore: 1,
+    minute: 78,
+    status: 'live',
+    date: '2026-06-12',
+    time: '18:00',
+    stadium: 'MetLife Stadium, East Rutherford',
+    attendance: 82500,
+    capacity: 82500,
+  },
+  {
+    id: 'match-2',
+    homeTeam: 'Mexico',
+    homeFlag: '🇲🇽',
+    awayTeam: 'Argentina',
+    awayFlag: '🇦🇷',
+    homeScore: 0,
+    awayScore: 0,
+    minute: 0,
+    status: 'upcoming',
+    date: '2026-06-13',
+    time: '15:00',
+    stadium: 'Estadio Azteca, Mexico City',
+    attendance: 0,
+    capacity: 87500,
+  },
+  {
+    id: 'match-3',
+    homeTeam: 'Canada',
+    homeFlag: '🇨🇦',
+    awayTeam: 'Germany',
+    awayFlag: '🇩🇪',
+    homeScore: 1,
+    awayScore: 3,
+    minute: 90,
+    status: 'completed',
+    date: '2026-06-11',
+    time: '20:00',
+    stadium: 'BC Place, Vancouver',
+    attendance: 54300,
+    capacity: 54500,
+  }
+];
+
+export const STADIUM_ZONES: StadiumZone[] = [
+  { id: 'zone-north', name: 'North Stand (Zone A)', crowdDensity: 82, capacity: 20000, currentCount: 16400, incidentsCount: 1, status: 'congested' },
+  { id: 'zone-east', name: 'East Stand (Zone B)', crowdDensity: 45, capacity: 22000, currentCount: 9900, incidentsCount: 0, status: 'normal' },
+  { id: 'zone-south', name: 'South Stand (Zone C)', crowdDensity: 91, capacity: 18000, currentCount: 16380, incidentsCount: 2, status: 'congested' },
+  { id: 'zone-west', name: 'West Stand (Zone D)', crowdDensity: 30, capacity: 22500, currentCount: 6750, incidentsCount: 0, status: 'normal' },
+  { id: 'zone-concourse-1', name: 'Concourse Level 1', crowdDensity: 75, capacity: 15000, currentCount: 11250, incidentsCount: 0, status: 'normal' },
+  { id: 'zone-gate-4', name: 'Gate 4 Entrance', crowdDensity: 98, capacity: 5000, currentCount: 4900, incidentsCount: 1, status: 'restricted' }
+];
+
+export const TRANSPORT_OPTIONS: TransportOption[] = [
+  {
+    id: 't-1',
+    type: 'metro',
+    name: 'MetLife Express Line (M1)',
+    durationMin: 22,
+    status: 'smooth',
+    occupancyPercent: 65,
+    description: 'Direct train to Penn Station. Leaves every 5 mins.',
+    cost: '$5.00',
+    routeDetails: 'Board at Stadium North Station, Transfer-free.'
+  },
+  {
+    id: 't-2',
+    type: 'bus',
+    name: 'Shuttle Bus 350 (Express)',
+    durationMin: 35,
+    status: 'delayed',
+    occupancyPercent: 95,
+    description: 'High occupancy due to post-match exit rush. Delayed by 15 mins.',
+    cost: 'Free with Ticket',
+    routeDetails: 'Board at Gate B Bus Depot.'
+  },
+  {
+    id: 't-3',
+    type: 'taxi',
+    name: 'FIFA Official Rideshare/Taxi Area',
+    durationMin: 45,
+    status: 'congested',
+    occupancyPercent: 88,
+    description: 'High demand. Expected wait time for pickup: 25 minutes.',
+    cost: '$35.00 - $55.00',
+    routeDetails: 'Walk to Lot G Rideshare Zone.'
+  },
+  {
+    id: 't-4',
+    type: 'walking',
+    name: 'Pedestrian Route - West Parking',
+    durationMin: 12,
+    status: 'smooth',
+    occupancyPercent: 40,
+    description: 'Clear pathway. Recommended for fast exit.',
+    cost: 'Free',
+    routeDetails: 'Follow Green Pathway from Gate 3.'
+  }
+];
+
+export const SUSTAINABILITY_METRICS: SustainabilityMetrics = {
+  energyConsumptionKwh: 14200,
+  waterConsumptionLiters: 95000,
+  wasteRecycledKg: 4200,
+  carbonScore: 84, // out of 100 (higher is cleaner)
+  environmentalScore: 88,
+};
+
+export const RECENT_ALERTS: EmergencyAlert[] = [
+  {
+    id: 'alert-1',
+    severity: 'high',
+    title: 'Crowd Congestion at Gate 4',
+    description: 'Gate 4 is experiencing high congestion. Fans are redirected to Gates 2 and 3.',
+    timestamp: '18:42',
+    zone: 'Gate 4 Entrance',
+    status: 'active'
+  },
+  {
+    id: 'alert-2',
+    severity: 'medium',
+    title: 'Elevator Maintenance: Zone B',
+    description: 'Elevator B3 is temporarily out of service. Use elevator B2 or B4 for accessible routing.',
+    timestamp: '18:15',
+    zone: 'East Stand (Zone B)',
+    status: 'active'
+  }
+];
+
+export const VOLUNTEER_TASKS: VolunteerTask[] = [
+  {
+    id: 'task-1',
+    title: 'Assist Accessibility Group at Gate 2',
+    description: 'A group of 8 wheelchair users needs guidance to Accessible Section 104.',
+    assignedTo: 'volunteer-1',
+    location: 'Gate 2 Entrance',
+    status: 'in_progress',
+    timeLimit: '15 mins',
+    aiGuidance: 'Path from Gate 2 to Section 104 is fully ramped. Use elevator B2 if needed.'
+  },
+  {
+    id: 'task-2',
+    title: 'Water Distribution - Zone C',
+    description: 'Restock cooling station waters in the south concourse.',
+    assignedTo: 'volunteer-1',
+    location: 'South Concourse (Zone C)',
+    status: 'pending',
+    timeLimit: '30 mins',
+    aiGuidance: 'Pick up water flats from Supply Room 12 near Gate 5. Use hand cart.'
+  }
+];
+
+export const TRANSLATION_DICTIONARY: Record<string, Record<string, string>> = {
+  en: {
+    title: 'FIFA SmartHub AI',
+    subtitle: 'Stadium Operations & Tournament Intelligence',
+    welcome: 'Welcome to Stadium Operations Command',
+    crowdDensity: 'Crowd Density',
+    emergencySOS: 'EMERGENCY SOS',
+    askAi: 'Ask Stadium AI Assistant...',
+    carbonSavings: 'Carbon Savings',
+    liveMatch: 'Live Match',
+    transportStatus: 'Transport Status',
+    accessibilityRamps: 'Accessible Routes',
+    volunteerTasks: 'Your Assigned Tasks',
+    activeIncidents: 'Active Incidents',
+    announcementGenerator: 'AI Announcement Generator',
+    stadiumTwin: 'Digital Twin',
+    language: 'Language',
+  },
+  es: {
+    title: 'FIFA SmartHub AI',
+    subtitle: 'Operaciones del Estadio e Inteligencia de Torneos',
+    welcome: 'Bienvenido al Comando de Operaciones del Estadio',
+    crowdDensity: 'Densidad de Multitud',
+    emergencySOS: 'SOS DE EMERGENCIA',
+    askAi: 'Pregunte al asistente de IA del estadio...',
+    carbonSavings: 'Ahorro de Carbono',
+    liveMatch: 'Partido en Vivo',
+    transportStatus: 'Estado del Transporte',
+    accessibilityRamps: 'Rutas Accesibles',
+    volunteerTasks: 'Sus Tareas Asignadas',
+    activeIncidents: 'Incidentes Activos',
+    announcementGenerator: 'Generador de Anuncios IA',
+    stadiumTwin: 'Gemelo Digital',
+    language: 'Idioma',
+  },
+  fr: {
+    title: 'FIFA SmartHub AI',
+    subtitle: 'Opérations du Stade & Intelligence de Tournoi',
+    welcome: 'Bienvenue au Commandement des Opérations du Stade',
+    crowdDensity: 'Densité de Foule',
+    emergencySOS: 'SOS URGENCE',
+    askAi: 'Demandez à l\'assistant IA du stade...',
+    carbonSavings: 'Économies de Carbone',
+    liveMatch: 'Match en Direct',
+    transportStatus: 'Statut du Transport',
+    accessibilityRamps: 'Routes Accessibles',
+    volunteerTasks: 'Vos Tâches Assignées',
+    activeIncidents: 'Incidents Actifs',
+    announcementGenerator: 'Générateur d\'Annonces IA',
+    stadiumTwin: 'Jumeau Numérique',
+    language: 'Langue',
+  },
+  ar: {
+    title: 'FIFA SmartHub AI',
+    subtitle: 'عمليات الملعب واستخبارات البطولة',
+    welcome: 'مرحبًا بك في قيادة عمليات الملعب',
+    crowdDensity: 'كثافة الجمهور',
+    emergencySOS: 'SOS الطوارئ',
+    askAi: 'اسأل مساعد الذكاء الاصطناعي للملعب...',
+    carbonSavings: 'توفير الكربون',
+    liveMatch: 'مباراة مباشرة',
+    transportStatus: 'حالة النقل',
+    accessibilityRamps: 'طرق سهلة الوصول',
+    volunteerTasks: 'المهام المعينة لك',
+    activeIncidents: 'الحوادث النشطة',
+    announcementGenerator: 'مولد إعلانات الذكاء الاصطناعي',
+    stadiumTwin: 'التوأم الرقمي',
+    language: 'اللغة',
+  },
+  hi: {
+    title: 'फीफा स्मार्टहब एआई',
+    subtitle: 'स्टेडियम संचालन और टूर्नामेंट इंटेलिजेंस',
+    welcome: 'स्टेडियम संचालन कमांड में आपका स्वागत है',
+    crowdDensity: 'भीड़ घनत्व',
+    emergencySOS: 'आपातकालीन एसओएस',
+    askAi: 'स्टेडियम एआई सहायक से पूछें...',
+    carbonSavings: 'कार्बन बचत',
+    liveMatch: 'लाइव मैच',
+    transportStatus: 'परिवहन स्थिति',
+    accessibilityRamps: 'सुलभ मार्ग',
+    volunteerTasks: 'आपके सौंपे गए कार्य',
+    activeIncidents: 'सक्रिय घटनाएं',
+    announcementGenerator: 'एआई घोषणा जनरेटर',
+    stadiumTwin: 'डिजिटल ट्विन',
+    language: 'भाषा',
+  },
+  ja: {
+    title: 'FIFA スマートハブ AI',
+    subtitle: 'スタジアム運営＆トーナメントインテリジェンス',
+    welcome: 'スタジアム運営コマンドへようこそ',
+    crowdDensity: '混雑度',
+    emergencySOS: '緊急 SOS',
+    askAi: 'スタジアムAIアシスタントに質問する...',
+    carbonSavings: '炭素削減量',
+    liveMatch: 'ライブマッチ',
+    transportStatus: '運行状況',
+    accessibilityRamps: 'バリアフリールート',
+    volunteerTasks: '割り当てられたタスク',
+    activeIncidents: 'アクティブなインシデント',
+    announcementGenerator: 'AI アナウンス作成',
+    stadiumTwin: 'デジタルツイン',
+    language: '言語',
+  },
+  pt: {
+    title: 'FIFA SmartHub AI',
+    subtitle: 'Operações de Estádio e Inteligência de Torneio',
+    welcome: 'Bem-vindo ao Comando de Operações do Estádio',
+    crowdDensity: 'Densidade da Multidão',
+    emergencySOS: 'SOS DE EMERGÊNCIA',
+    askAi: 'Pergunte ao assistente de IA do estádio...',
+    carbonSavings: 'Economia de Carbono',
+    liveMatch: 'Jogo ao Vivo',
+    transportStatus: 'Status de Transporte',
+    accessibilityRamps: 'Rotas Acessíveis',
+    volunteerTasks: 'Suas Tarefas Atribuídas',
+    activeIncidents: 'Incidentes Ativos',
+    announcementGenerator: 'Gerador de Anúncios por IA',
+    stadiumTwin: 'Gêmeo Digital',
+    language: 'Idioma',
+  },
+  de: {
+    title: 'FIFA SmartHub AI',
+    subtitle: 'Stadionbetrieb & Turnierintelligenz',
+    welcome: 'Willkommen in der Stadionbetriebszentrale',
+    crowdDensity: 'Crowd-Dichte',
+    emergencySOS: 'NOTFALL SOS',
+    askAi: 'Fragen Sie den Stadion-KI-Assistenten...',
+    carbonSavings: 'CO2-Einsparung',
+    liveMatch: 'Live-Spiel',
+    transportStatus: 'Transportstatus',
+    accessibilityRamps: 'Barrierefreie Routen',
+    volunteerTasks: 'Ihre zugewiesenen Aufgaben',
+    activeIncidents: 'Aktive Vorfälle',
+    announcementGenerator: 'KI-Ankündigungsgenerator',
+    stadiumTwin: 'Digitaler Zwilling',
+    language: 'Sprache',
+  }
+};
+
+export const FAN_ASSISTANT_SUGGESTIONS = [
+  'Where is the nearest wheelchair-accessible restroom?',
+  'How do I get to MetLife Stadium via Metro?',
+  'What is the crowd level at Gate 4 right now?',
+  'Where is the nearest water refilling station?',
+  'What should I do in case of a medical emergency?'
+];
